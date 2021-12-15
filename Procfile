@@ -1,0 +1,1 @@
+web: gunicorn cvmakerproject.wsgi --log-file -

@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-axu@&p514vibbjb7c7-1m&7bt10%0k)s0s&(7nh!lrl5rts(nt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['amarbio.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -73,10 +73,10 @@ WSGI_APPLICATION = 'cvmakerproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7lud4f4s923lq',
-        'USER': 'muahcfhnuhuerm',
-        'PASSWORD': '01200ea8ad8a74f47a7df3adf986c3ba85d4657a4f6183b3e7dec9aa27d95126',
-        'HOST': 'ec2-54-84-142-90.compute-1.amazonaws.com',
+        'NAME': 'd5v5vmdl1l6273',
+        'USER': 'ciiytlpdvyogkr',
+        'PASSWORD': '22c610b68b577e68725b585e91e905287bce1c5afc4295803d7db67216e42c1f',
+        'HOST': 'ec2-54-147-107-18.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
