@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Nunito:600,700,900" rel="stylesheet">
+    
+    <!-- Title Page-->
+    <title>My Portfolio | {% block title %} {% endblock title %}</title>
+
+    <!-- Main CSS-->
+    <link href="{% static 'users/css/add.css' %}" rel="stylesheet">
+</head>
+
+<body id="body">
+
+     {% comment %} {% if messages %} {% endcomment %}
+        {% for message in messages %}
+    
+        <div class="alert alert--{{message.tags}}">
+            <p class="alert__message">{{message}}</p>
+            <button class="alert__close">X</button>
+          </div>
+    
+        {% endfor %}
+        {% comment %} {% endif %} {% endcomment %}
+
+    
+        
+
+    {% block content %}
+    
+    {% endblock content %}
+
+    
+
+
+</body>
+
+</html>
+<!-- end document-->

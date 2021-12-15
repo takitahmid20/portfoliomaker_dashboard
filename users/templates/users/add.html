@@ -1,0 +1,32 @@
+
+{% extends 'addbase.html' %}
+
+{% load static %}
+
+{% block title %} Add {% endblock title %}
+
+{% block content %}
+
+
+<div id="login-card" class="card">
+    <div class="card-body">
+      <h2 class="text-center">Add </h2>
+      <br>
+      <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% for field in form %}
+        <div class="form-group">
+            {{field.label}}
+            {{field}}
+          
+        </div>
+        {% endfor %}
+
+        <input type="submit" value="Add {% if request.addVideo %}Video{% endif %} " class="btn btn-primary deep-purple btn-block ">
+
+      </form>
+    </div>
+    <div>
+
+{% endblock content %}

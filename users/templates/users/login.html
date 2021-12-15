@@ -1,0 +1,36 @@
+{% extends 'userbase.html' %}
+
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <h3>Login Here</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username" name="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="password">
+
+        <button class='log-reg-btn'>Log In</button>
+        <div class="p-t-10">
+            {% comment %} <buttom type='submit' value="Login"></button> {% endcomment %}
+            <a href="{% url 'register' %}" class="btn btn--pill btn--black">Create an account</a>
+        </div>
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div>
+    </form>
+        
+
+{% endblock content %}

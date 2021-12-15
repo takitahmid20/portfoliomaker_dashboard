@@ -1,0 +1,42 @@
+{% load static %}
+<div class="leftpart">
+    <div class="leftpart_inner">
+        <div class="logo">
+            <a href="#"><img src="{% static 'mycv/img/logo/logo.png' %}" alt="" /></a>
+        </div>
+        <div class="menu">
+            <ul>
+                <div class="edit-button-div">
+                <li class="active"><a href="#home">Home</a> </li>
+                <button class="edit-button"><a href='{% url 'account'%}'>Edit</a></button>
+                </div>
+                <div class="edit-button-div">
+                <li><a href="#about">About</a></li>
+                <button class="edit-button"><a href='{% url 'account'%}'>Edit</a></button>
+            </div>
+                <div class="edit-button-div">
+                <li><a href="#portfolio">Portfolio</a></li>
+                <button class="edit-button"><a href='{% url 'account'%}'>Edit</a></button>
+            </div>
+                <div class="edit-button-div">
+                <li><a href="#news">News</a></li>
+                <button class="edit-button"><a href='{% url 'account'%}'>Edit</a></button>
+            </div>
+                <div class="edit-button-div">
+                <li><a href="#contact">Contact</a></li>
+                <button class="edit-button"><a href='{% url 'account'%}'>Edit</a></button>
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="edit-button-div">
+                <button class="edit-button"><a href='{% url 'logout' %}'>Logout</a></button>
+            </div>
+            {% endif %}
+            </ul>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2021 Lebriact<br>Created by <a href="#" target="_blank">Lerbiact</a></p>
+            
+
+        </div>
+    </div>
+</div>

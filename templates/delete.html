@@ -1,0 +1,31 @@
+
+{% extends 'addbase.html' %}
+
+{% load static %}
+
+{% block title %} Delete {{object}} {% endblock title %}
+
+{% block content %}
+
+
+<div id="login-card" class="card">
+    <div class="card-body">
+      <h2 class="text-center">Delete {{object}}</h2>
+      <p class="text-center">Are you sure you want to delete <b>"{{object}}"</b> ? </p>
+      <br>
+      <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% for field in form %}
+        <div class="form-group">
+            
+        </div>
+        {% endfor %}
+
+        <input type="submit" value="Delete" class="btn btn-danger deep-purple btn-block ">
+
+      </form>
+    </div>
+    <div>
+
+{% endblock content %}

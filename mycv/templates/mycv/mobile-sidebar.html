@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="tokyo_tm_mobile_menu">
+    <div class="menu_inner">
+        <div class="logo">
+            {% if sitedata.profile_image %}
+            <img src="{{sitedata.profile_image.url}}" alt="" />
+            {% endif %}
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#home"><img class="svg" src="{% static 'mycv/img/svg/home-run.svg' %}" alt="" /></a></li>
+                <li><a href="#about"><img class="svg" src="{% static 'mycv/img/svg/avatar.svg' %}" alt="" /></a></li>
+                <li><a href="#portfolio"><img class="svg" src="{% static 'mycv/img/svg/briefcase.svg' %}" alt="" /></a></li>
+                <li><a href="#news"><img class="svg" src="{% static 'mycv/img/svg/paper.svg' %}" alt="" /></a></li>
+                <li><a href="#contact"><img class="svg" src="{% static 'mycv/img/svg/mail.svg' %}" alt="" /></a></li>
+                {% if request.user.is_authenticated %}
+        <a style="text-decoration: none;" href="{% url 'account' %}">Edit me </a>
+        {% else %}
+        <a style="text-decoration: none;" href="{% url 'register' %}">Create</a>
+        {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

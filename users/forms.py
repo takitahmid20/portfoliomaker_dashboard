@@ -1,0 +1,217 @@
+from django.forms import ModelForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from mycv.models import Profile, videoModel, imageModel, projectModel
+
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'username', 'email', 'password1', 'password2']
+        labels = {
+            'first_name':'Name'
+        }
+        
+
+    def __init__(self, *args, **kwargs):
+        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+
+        # for name, field in self.fields.items():
+        #     field.widget.attrs.update({'class': 'input--style-3'})
+        self.fields['first_name'].widget.attrs.update({
+            'id': 'username',
+            'placeholder': 'Name',
+            }),
+        self.fields['username'].widget.attrs.update({
+            'id': 'username',
+            'placeholder': 'username',
+            }),
+        self.fields['email'].widget.attrs.update({
+            'id': 'username',
+            'placeholder': 'Email address',
+            }),
+        self.fields['password1'].widget.attrs.update({
+            'id': 'username',
+            'placeholder': 'Password',
+            }),
+        self.fields['password2'].widget.attrs.update({
+            'id': 'username',
+            'placeholder': 'Confirm Password',
+            })
+
+
+class profileForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['username','profile_image', 'name', 'short_introduction', 'facebook', 'twitter', 'instagram', 'linkedin', 'about_banner_img', 'bio', 'birthday', 'age', 'address', 'email', 'phone', 'study_in']
+        # exclude = ('user',)
+
+    def __init__(self, *args, **kwargs):
+        super(profileForm, self).__init__(*args, **kwargs)
+
+        # for name, field in self.fields.items():
+        #     field.widget.attrs.update({'class': 'input--style-3'})
+        self.fields['name'].widget.attrs.update({
+            'class': 'account_edit',
+            'placeholder': 'Name',
+            }),
+        self.fields['short_introduction'].widget.attrs.update({
+            'class': 'account_edit',
+            'placeholder': 'Short intro about you',
+            }),
+        self.fields['facebook'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Facebook link',
+            }),
+        self.fields['twitter'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Twitter link',
+            }),
+        self.fields['instagram'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Instagram link',
+            }),
+        self.fields['linkedin'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Linkedin link',
+            }),
+        self.fields['about_banner_img'].widget.attrs.update({
+            'class': 'account_edit',
+            'placeholder': 'Add a banner image',
+            }),
+        self.fields['bio'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Add your bio',
+            }),
+        self.fields['birthday'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Birthday',
+            }),
+        self.fields['age'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Age',
+            }),
+        self.fields['address'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Address',
+            }),
+        self.fields['email'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Email address',
+            }),
+        self.fields['phone'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Phone number',
+            }),
+        self.fields['study_in'].widget.attrs.update({
+            'class': 'account_edit edit_social',
+            'placeholder': 'Study in',
+            })
+
+
+class videoForm(ModelForm):
+    class Meta:
+        model = videoModel
+        fields = ['video_title', 'video_thumbnail', 'video_link']
+       
+
+    def __init__(self, *args, **kwargs):
+        super(videoForm, self).__init__(*args, **kwargs)
+
+          
+        self.fields['video_title'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Video title',
+            }),
+        self.fields['video_thumbnail'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Video title',
+            }),
+        self.fields['video_link'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Video title',
+            })
+
+
+class imageForm(ModelForm):
+    class Meta:
+        model = imageModel
+        fields = ['image_title', 'image']
+       
+
+    def __init__(self, *args, **kwargs):
+        super(imageForm, self).__init__(*args, **kwargs)
+
+          
+        self.fields['image_title'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Image title',
+            }),
+        self.fields['image'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Add image',
+            })
+
+
+class projectForm(ModelForm):
+    class Meta:
+        model = projectModel
+        fields = ['project_name', 'project_feature_image', 'project_details','project_client','project_category','project_completed_year','project_img_2','project_img_3','project_img_4']
+       
+
+    def __init__(self, *args, **kwargs):
+        super(projectForm, self).__init__(*args, **kwargs)
+
+          
+        self.fields['project_name'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Project name',
+            }),
+        self.fields['project_feature_image'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Add project feature image',
+            })
+        self.fields['project_details'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Project details',
+            })
+        self.fields['project_client'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Project client/company name',
+            })
+        self.fields['project_category'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Project category',
+            })
+        self.fields['project_completed_year'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Project completed year',
+            })
+        self.fields['project_img_2'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'More image',
+            })
+        self.fields['project_img_3'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'More image',
+            })
+        self.fields['project_img_4'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'More image',
+            })
+        
+        
