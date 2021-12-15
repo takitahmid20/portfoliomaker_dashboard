@@ -50,7 +50,8 @@ def loginPage(request):
             
         except:
             messages.error(request, 'Username does not match.')
-            user = authenticate(request, username=username, password=password)
+            
+        user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
