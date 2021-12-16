@@ -112,7 +112,7 @@
 /* Close button on the top right corner of html content */
 .fancybox-close-small { border: 0; text-align: center; font-size: 1.7rem; color: #8E9FB4; cursor: pointer; display: block !important; width: 5.8rem; height: 5.3rem; background: transparent; position: absolute; right: 0; top: 0; z-index: 401; font-size: 1.2rem; opacity: 1; padding: .2rem; }
 
-.fancybox-close-small i { padding: .9rem 0 0 .2rem; width: 2.8rem; height: 2.8rem; background: #fff; font-size: 1rem; -webkit-border-radius: 50%; border-radius: 50%; display: inline-block; color: #1B2B7C; -webkit-transition: color .3s ease-in; -o-transition: color .3s ease-in; transition: color .3s ease-in; }
+.fancybox-close-small i { padding: .9rem 0 0 .2rem; width: 2.8rem; height: 2.8rem; background: #fff; font-size: 1rem; -webkit-border-radius: 50%; border-radius: 50%; display: inline-block; color: #000000; -webkit-transition: color .3s ease-in; -o-transition: color .3s ease-in; transition: color .3s ease-in; }
 
 .web .fancybox-close-small:hover i { color: #FB5472; }
 
@@ -400,7 +400,7 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .about-details__item__text { margin-top: .4rem; font-weight: bold; font-size: 1.4rem; line-height: 150%; letter-spacing: 0.05em; text-transform: uppercase; position: relative; z-index: 1; }
 
-.about-details__val { font-size: 5.4rem; line-height: 110%; font-weight: 700; position: relative; z-index: 1; color: #1B2B7C; }
+.about-details__val { font-size: 5.4rem; line-height: 110%; font-weight: 700; position: relative; z-index: 1; color: #000000; }
 
 .about-details__val_plus { color: #FB5472; font-size: 3rem; display: inline-block; vertical-align: top; margin: -1px 0 0 .6rem; }
 
@@ -424,7 +424,7 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .get-list__icon img { vertical-align: top; }
 
-.get-list__title { font-family: Aleo, arial, sans-serif; font-weight: bold; font-size: 2rem; line-height: 120%; color: #1B2B7C; text-transform: capitalize; }
+.get-list__title { font-family: Aleo, arial, sans-serif; font-weight: bold; font-size: 2rem; line-height: 120%; color: #000000; text-transform: capitalize; }
 
 .get-list__text { padding-left: .3rem; margin-top: 1.9rem; font-size: 1.6rem; line-height: 170%; position: relative; z-index: 1; }
 
@@ -464,7 +464,7 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .steps__icon { height: 7rem; position: relative; z-index: 1; }
 
-.steps__title { margin-top: 3.1rem; font-weight: bold; text-transform: capitalize; font-family: Aleo, arial, sans-serif; font-size: 2.4rem; line-height: 120%; position: relative; z-index: 1; color: #1B2B7C; }
+.steps__title { margin-top: 3.1rem; font-weight: bold; text-transform: capitalize; font-family: Aleo, arial, sans-serif; font-size: 2.4rem; line-height: 120%; position: relative; z-index: 1; color: #000000; }
 
 .steps__count { position: absolute; bottom: -1.7rem; left: 50%; z-index: 0; font-weight: 900; font-size: 15rem; line-height: 100%; -webkit-transform: translate(-50%, 0%); -ms-transform: translate(-50%, 0%); transform: translate(-50%, 0%); color: rgba(27, 43, 124, 0.05); }
 
@@ -478,7 +478,7 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .prices__item:hover { color: #646A89; }
 
-.prices__item:hover .btn_buy { color: #fff; background: #1B2B7C; }
+.prices__item:hover .btn_buy { color: #fff; background: #000000; }
 
 .prices__item:hover .prices__decor:before { background-position: 100% 0; }
 
@@ -488,13 +488,13 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .prices__category { color: #FB5472; font-weight: bold; font-size: 1.6rem; line-height: 150%; text-transform: uppercase; }
 
-.prices__title { margin-top: .9rem; font-weight: bold; font-size: 2.4rem; line-height: 140%; font-family: Aleo, arial, sans-serif; color: #1B2B7C; }
+.prices__title { margin-top: .9rem; font-weight: bold; font-size: 2.4rem; line-height: 140%; font-family: Aleo, arial, sans-serif; color: #000000; }
 
 .prices__period { margin-top: .2rem; font-size: 1.6rem; line-height: 150%; text-transform: capitalize; }
 
 .prices__cost { margin-top: 1.5rem; font-weight: bold; font-size: 2rem; padding-left: 1.5rem; line-height: 2; }
 
-.prices__cost-val { font-weight: bold; font-size: 6.4rem; margin: 0 1rem; line-height: 1; color: #1B2B7C; vertical-align: top; -webkit-transition: color .4s ease; -o-transition: color .4s ease; transition: color .4s ease; }
+.prices__cost-val { font-weight: bold; font-size: 6.4rem; margin: 0 1rem; line-height: 1; color: #000000; vertical-align: top; -webkit-transition: color .4s ease; -o-transition: color .4s ease; transition: color .4s ease; }
 
 .prices__list { list-style: none; font-size: 1.6rem; line-height: 170%; }
 
@@ -576,7 +576,7 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .author__img { width: 7rem; height: 7rem; -webkit-border-radius: 50%; border-radius: 50%; -o-object-position: 50% 50%; object-position: 50% 50%; -o-object-fit: cover; object-fit: cover; }
 
-.author__title { font-weight: bold; font-size: 1.4rem; line-height: 150%; letter-spacing: 0.05em; text-transform: uppercase; color: #1B2B7C; }
+.author__title { font-weight: bold; font-size: 1.4rem; line-height: 150%; letter-spacing: 0.05em; text-transform: uppercase; color: #000000; }
 
 .author__position { font-size: 1.6rem; line-height: 170%; }
 
@@ -685,7 +685,7 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .popup { background: -webkit-gradient(linear, left top, right top, from(#fcfdfe), to(#e0e3f5)); background: -webkit-linear-gradient(left, #fcfdfe 0%, #e0e3f5 100%); background: -o-linear-gradient(left, #fcfdfe 0%, #e0e3f5 100%); background: linear-gradient(90deg, #fcfdfe 0%, #e0e3f5 100%); width: 60rem; max-width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; -webkit-border-radius: 20px 0px 0px 20px; border-radius: 20px 0px 0px 20px; }
 
-.popup-title { font-weight: bold; font-size: 5.4rem; line-height: 100%; margin-bottom: 2.4rem; font-family: Aleo, arial, sans-serif; color: #1B2B7C; line-height: 100%; text-transform: capitalize; position: relative; z-index: 1; }
+.popup-title { font-weight: bold; font-size: 5.4rem; line-height: 100%; margin-bottom: 2.4rem; font-family: Aleo, arial, sans-serif; color: #000000; line-height: 100%; text-transform: capitalize; position: relative; z-index: 1; }
 
 .popup-text { font-size: 1.6rem; line-height: 170%; max-width: 46rem; }
 
