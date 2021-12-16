@@ -6,40 +6,6 @@
 
 {% block content %}
 
-<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
-    <div class="wrapper wrapper--w780">
-        <div class="card card-3">
-            <div class="card-heading"></div>
-            <div class="card-body">
-                <form method="POST">
-                    {% csrf_token %}
-                   
-                    {% for field in form %}
-                    <div class="input-group">
-                        {{field}}
-                        
-                        {% comment %} {% if field.help_text %}
-                        <small style="color: white;">{{field.help_text}}</small>
-                        {% endif %} {% endcomment %}
-
-                        {% for error in field.errors %}
-                            <p style="color: red;">{{error}}</p>
-                        {% endfor %}
-
-                    </div>
-                    {% endfor %}
-                   
-                   
-                 
-                    <div class="p-t-10">
-                        <input type='submit' value="Register" class="btn btn--pill btn--green">
-                        <a href="{% url 'login' %}" class="">Login</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="background">
     <div class="shape"></div>
@@ -47,7 +13,7 @@
 </div>
                 <form method="POST">
                     {% csrf_token %}
-                    
+                    <a href="{% url 'home' %}"><img style='height:50px;' src="{% static 'home/img/logo.png' %}" alt=""></a>
                     <h3>Register Here</h3>
                     {% for field in form %}
        
