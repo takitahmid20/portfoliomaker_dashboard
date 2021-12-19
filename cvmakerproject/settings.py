@@ -115,27 +115,27 @@ WSGI_APPLICATION = 'cvmakerproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'd5v5vmdl1l6273',
-#         'USER': 'ciiytlpdvyogkr',
-#         'PASSWORD': '22c610b68b577e68725b585e91e905287bce1c5afc4295803d7db67216e42c1f',
-#         'HOST': 'ec2-54-147-107-18.compute-1.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '8255',
-        'HOST': 'localhost',
+        'NAME': 'd5v5vmdl1l6273',
+        'USER': 'ciiytlpdvyogkr',
+        'PASSWORD': '22c610b68b577e68725b585e91e905287bce1c5afc4295803d7db67216e42c1f',
+        'HOST': 'ec2-54-147-107-18.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': '8255',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
