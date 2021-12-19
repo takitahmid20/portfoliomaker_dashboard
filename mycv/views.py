@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from .models import homeModel, aboutModel, projectModel, videoModel, imageModel
-from .models import Profile, videoModel, imageModel, projectModel
+from .models import Profile, videoModel, imageModel, projectModel,mySkills, languageSkills, extras
 
 
 def fullsiteview(request, username):
@@ -9,8 +9,11 @@ def fullsiteview(request, username):
     videodata = sitedata.videomodel_set.exclude()
     imagedata = sitedata.imagemodel_set.exclude()
     projectdata = sitedata.projectmodel_set.exclude()
+    myskilldata = mySkills.objects.all()
+    languageskilldata = languageSkills.objects.all()
+    extradata = sitedata.extras_set.exclude()
 
-    context = {'sitedata': sitedata, 'videodata': videodata, 'imagedata': imagedata, 'projectdata': projectdata}
+    context = {'sitedata': sitedata, 'videodata': videodata, 'imagedata': imagedata, 'projectdata': projectdata, 'myskilldata':myskilldata, 'languageskilldata':languageskilldata, 'extradata':extradata}
     return render(request, 'mycv/profile.html', context)
 
 # def mycv(request, pk):

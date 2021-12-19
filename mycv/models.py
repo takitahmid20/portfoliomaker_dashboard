@@ -63,3 +63,27 @@ class projectModel(models.Model):
 
     def __str__(self):
         return str(self.project_name)
+
+
+class mySkills(models.Model):
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True)
+    skill_name = models.CharField(max_length=200,null=True, blank=True)
+    skill_percentage = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return str(self.skill_name)
+
+
+class languageSkills(models.Model):
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True)
+    language_name = models.CharField(max_length=200, null=True, blank=True)
+    language_percentage = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return str(self.language_name)
+
+
+class extras(models.Model):
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True)
+    total_completed_projects = models.IntegerField(null=True, blank=True)
+    total_clients = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return str(self.total_completed_projects)

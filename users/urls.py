@@ -18,5 +18,14 @@ urlpatterns = [
     path('add-project', views.addProject, name='add_project'),
     path('edit-project/<str:pk>/', views.editProject, name='edit_project'),
     path('delete-project/<str:pk>/', views.deleteProject, name='delete_project'),
+    #----------MYSKILL------------
+    path('add-myskill', views.addMyskill, name='add_myskill'),
+    path('edit-myskill/<str:pk>/', views.editMyskill, name='edit_myskill'),
+    path('delete-myskill/<str:pk>/', views.deleteMyskill, name='delete_myskill'),
+    #----------LANGUAGESKILL------------
+    path('add-languageskill', views.addlanguageskill, name='add_languageskill'),
+    path('edit-languageskill/<str:pk>/', views.editlanguageskill, name='edit_languageskill'),
+    path('delete-languageskill/<str:pk>/', views.deletelanguageskill, name='delete_languageskill'),
+
     # path('editaccount', views.editAccount, name='editaccount')
 ]

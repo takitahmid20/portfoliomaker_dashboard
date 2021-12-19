@@ -12,7 +12,7 @@
 </div>
                 <form method="POST">
                     {% csrf_token %}
-                    <a href="{% url 'home' %}"><img style='height:50px;' src="{% static 'home/img/logo.png' %}" alt=""></a>
+                    <a href="{% url 'home' %}"><img style='height:50px;' src="{% static 'home/img/logo.svg' %}" alt=""></a>
                     <h3>Login Here</h3>
 
         <label for="username">Username</label>
@@ -28,7 +28,7 @@
         </div>
         <div class="social">
           <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+          <a href="{% url 'social:begin' 'facebook' %}"><div class="fb"><i class="fab fa-facebook"></i>  Facebook</div></a>
         </div>
     </form>
         

@@ -64,21 +64,15 @@
 				<div class="my_box">
 					<div class="left">
 						<div class="about_title">
-							<h3>Photography Skills</h3>
+							<h3>My Skills</h3>
 						</div>
 						<div class="tokyo_progress">
-							<div class="progress_inner" data-value="95">
-								<span><span class="label">Wedding Photography</span><span class="number">95%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="80" >
-								<span><span class="label">Lifestyle Photography</span><span class="number">80%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label">Family Photography</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
+							{% for myskill in myskilldata %}
+							<div class="progress_inner" data-value="{{myskill.skill_percentage}}">
+								<span><span class="label">{{myskill.skill_name}}</span><span class="number">{{myskill.skill_percentage}}%</span></span>
+								<div class="background"><div class="bar"><div class="bar_in"></div></div></div></div>
+								{% endfor %}
+
 						</div>
 					</div>
 					<div class="right">
@@ -86,18 +80,14 @@
 							<h3>Language Skills</h3>
 						</div>
 						<div class="tokyo_progress">
-							<div class="progress_inner" data-value="95">
-								<span><span class="label">English</span><span class="number">95%</span></span>
+
+							{% for languageskill in languageskilldata %}
+							<div class="progress_inner" data-value="{{languageskill.language_percentage}}">
+								<span><span class="label">{{languageskill.language_name}}</span><span class="number">{{languageskill.language_percentage}}%</span></span>
 								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
 							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label">Japanese</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="85">
-								<span><span class="label">Arabian</span><span class="number">85%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
+							{% endfor %}
+
 						</div>
 					</div>
 				</div>
@@ -108,13 +98,13 @@
 					<ul>
 						<li>
 							<div class="list_inner">
-								<h3><span class="tokyo_tm_counter" data-from="0" data-to="777" data-speed="1500">0</span></h3>
+								<h3><span class="tokyo_tm_counter" data-from="0" data-to="{{extradata.total_completed_projects}}" data-speed="1500">{{extradata.total_completed_projects}}</span></h3>
 								<span class="name">Projects Completed</span>
 							</div>
 						</li>
 						<li>
 							<div class="list_inner">
-								<h3><span class="tokyo_tm_counter" data-from="0" data-to="500" data-speed="1500">0</span>+</h3>
+								<h3><span class="tokyo_tm_counter" data-from="0" data-to="{{extradata.total_clients}}" data-speed="1500">{{extradata.total_clients}}</span></h3>
 								<span class="name">Happy Clients</span>
 							</div>
 						</li>

@@ -504,7 +504,7 @@
                 </div>
                 <div class="wrapper">
                     <div class="nav-logo">
-                        <a href="index.html" class="logo">
+                        <a href="{% url 'home' %}" class="logo">
                             <img src="{% static 'home/img/logo.svg' %}" alt="Numerio">
                         </a>
                     </div>
@@ -572,7 +572,7 @@
             <footer id="footer" class="footer footer-2">
                 <div class="footer__bg js-lazy" data-src="{% static 'home/img/bg/footer-2.svg' %}"></div>
                 <div class="wrapper">
-                    <a href="index.html" class="logo-footer">
+                    <a href="{% url 'home' %}" class="logo-footer">
                         <img src="{% static 'home/img/logo.svg' %}" alt="Numerio">
                     </a>
                     <div class="socials-item footer-social">

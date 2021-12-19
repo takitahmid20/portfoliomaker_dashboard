@@ -63,41 +63,55 @@
 			<div class="description_wrap">
 				<div class="my_box">
 					<div class="left">
-						<div class="about_title">
-							<h3>Photography Skills</h3>
+						
+						<div class="about_title" style="display: flex">
+							<h3>My Skills  </h3>
+							<div class="skill-add">
+								<a href="{% url 'add_myskill' %}">Add Myskill</a>
+							</div>
 						</div>
 						<div class="tokyo_progress">
-							<div class="progress_inner" data-value="95">
-								<span><span class="label">Wedding Photography</span><span class="number">95%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+							
+							{% for myskill in myskilldata %}
+
+							<div class="progress_inner" data-value="{{myskill.skill_percentage}}">
+								<span><span class="label">{{myskill.skill_name}}</span><span class="number">{{myskill.skill_percentage}}%</span></span>
+								<div class="background"><div class="bar">
+									<div class="bar_in">
+										
+									</div>
+									<a href="{% url 'edit_myskill' myskill.id %}">Edit</a>
+									<a href="{% url 'delete_myskill' myskill.id %}">Delete</a>
+								</div>
 							</div>
-							<div class="progress_inner" data-value="80" >
-								<span><span class="label">Lifestyle Photography</span><span class="number">80%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
 							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label">Family Photography</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
+						
+							{% endfor %}
+
 						</div>
 					</div>
 					<div class="right">
-						<div class="about_title">
+						<div class="about_title" style="display: flex !important">
 							<h3>Language Skills</h3>
+							<div class="skill-add">
+								<a href="{% url 'add_languageskill' %}">Add Myskill</a>
+							</div>
 						</div>
 						<div class="tokyo_progress">
-							<div class="progress_inner" data-value="95">
-								<span><span class="label">English</span><span class="number">95%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+
+							{% for languageskill in languageskilldata %}
+							<div class="progress_inner" data-value="{{languageskill.language_percentage}}">
+								<span><span class="label">{{languageskill.language_name}}</span><span class="number">{{languageskill.language_percentage}}%</span></span>
+								<div class="background"><div class="bar"><div class="bar_in">
+
+								</div>
+								<a href="{% url 'edit_languageskill' languageskill.id %}">Edit</a>
+									<a href="{% url 'delete_languageskill' languageskill.id %}">Delete</a>
 							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label">Japanese</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+						</div>
 							</div>
-							<div class="progress_inner" data-value="85">
-								<span><span class="label">Arabian</span><span class="number">85%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
+							{% endfor %}
+
 						</div>
 					</div>
 				</div>

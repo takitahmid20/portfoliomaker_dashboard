@@ -1922,3 +1922,11 @@ input[type="file"] {
     border: none;
     font-size: 17px;
 }
+
+.skill-add a {
+	text-decoration: none;
+	background: #04aabb;
+	padding: 6px 11px;
+	color: #fff;
+	border-radius: 30px;
+  }

@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from mycv.models import Profile, videoModel, imageModel, projectModel
+from mycv.models import Profile, videoModel, imageModel, projectModel, mySkills, languageSkills, extras
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -212,6 +212,50 @@ class projectForm(ModelForm):
             'class': 'form-control',
             'id': 'email',
             'placeholder': 'More image',
+            })
+
+
+class myskillForm(ModelForm):
+    class Meta:
+        model = mySkills
+        fields = ['skill_name', 'skill_percentage']
+       
+
+    def __init__(self, *args, **kwargs):
+        super(myskillForm, self).__init__(*args, **kwargs)
+
+          
+        self.fields['skill_name'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Skill name',
+            }),
+        self.fields['skill_percentage'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Skill percentage',
+            })
+
+
+class languageskillForm(ModelForm):
+    class Meta:
+        model = languageSkills
+        fields = ['language_name', 'language_percentage']
+       
+
+    def __init__(self, *args, **kwargs):
+        super(languageskillForm, self).__init__(*args, **kwargs)
+
+          
+        self.fields['language_name'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Language name',
+            }),
+        self.fields['language_percentage'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Language percentage',
             })
         
         
