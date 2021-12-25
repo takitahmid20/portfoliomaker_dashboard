@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-axu@&p514vibbjb7c7-1m&7bt10%0k)s0s&(7nh!lrl5rts(nt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['amarbio.herokuapp.com', '127.0.0.1']
 
@@ -126,13 +126,24 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolioserver',
+        'USER': 'postgres',
+        'PASSWORD': '8255',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': '8255',
-#         'HOST': 'localhost',
+#         'NAME': 'zjdjemix',
+#         'USER': 'zjdjemix',
+#         'PASSWORD': 'f6-Jon1VJzcf8K_73sG8B_u81_0vS8yZ',
+#         'HOST': 'castor.db.elephantsql.com',
 #         'PORT': '5432',
 #     }
 # }
@@ -174,7 +185,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

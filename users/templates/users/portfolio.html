@@ -1,0 +1,141 @@
+{% extends 'dashboardbase.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<main class="content">
+    <div class="container-fluid p-0">
+        <h1 class="h3 mb-3">Projects</h1>
+        <div class="row">
+            <div class="col-md-3 col-xl-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Projects Tab</h5>
+                    </div>
+                    <div class="list-group list-group-flush" role="tablist">
+                        <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#videotab" role="tab">
+                            Video
+                        </a>
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#imagetab" role="tab">
+                            Image
+                        </a>
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#projecttab" role="tab">
+                            Project
+                        </a>
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-xl-10">
+                <div class="tab-content">
+                   
+                    <div class="tab-pane fade show active" id="videotab" role="tabpanel">
+                        <a href="{% url 'add_video' %}" class="btn btn-primary"><span>Add video</span></a>
+                        <div class="row">
+                            {% for video in videodata %}
+
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    
+                                    <img class="card-img-top"
+                                    {% if video.video_thumbnail %} 
+                                    src="{{video.video_thumbnail.url}}"
+                                    {% endif %} 
+                                    alt="{{video.video_title}}">
+                                    
+                                    <div class="card-header px-4 pt-4">
+                                        <div class="card-actions float-end">
+                                            <div class="dropdown position-relative">
+                                                <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                                                    <i class="align-middle" data-feather="more-horizontal"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="{% url 'edit_video' video.id %}"><i class="align-middle" data-feather="edit"></i> Edit</a>
+                                                    <a class="dropdown-item" href="{% url 'delete_video' video.id %}"><i class="align-middle" data-feather="delete"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 class="card-title mb-0">{{video.video_title}}</h5>
+                                        <div class="badge bg-warning my-2">Video</div>
+                                    </div>
+                                    {% comment %} <div class="card-body px-4 pt-2">
+                                        <p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam
+                                            ultrices mauris.</p>
+                                        
+                                    </div> {% endcomment %}
+                                    
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="imagetab" role="tabpanel">
+                        <a href="{% url 'add_image' %}" class="btn btn-primary"><span>Add image</span></a>
+                        {% for image in imagedata %}
+                        <div class="col-12 col-md-6 col-lg-4">
+							<div class="card">
+								<img class="card-img-top" {% if image.image %} src="{{image.image.url}}" {% endif %} alt="{{image.image_title}}">
+								<div class="card-header px-4 pt-4">
+									<div class="card-actions float-end">
+										<div class="dropdown position-relative">
+											<a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+												<i class="align-middle" data-feather="more-horizontal"></i>
+											</a>
+											<div class="dropdown-menu dropdown-menu-end">
+												<a class="dropdown-item" href="{% url 'edit_image' image.id %}"><i class="align-middle" data-feather="edit"></i> Edit</a>
+                                                    <a class="dropdown-item" href="{% url 'delete_image' image.id %}"><i class="align-middle" data-feather="delete"></i> Delete</a>
+											</div>
+										</div>
+									</div>
+									<h5 class="card-title mb-0">{{image.image_title}}</h5>
+									<div class="badge bg-warning my-2">Image</div>
+								</div>
+								
+								
+							</div>
+						</div>
+                        {% endfor %}
+                    </div>
+        
+
+                    <div class="tab-pane fade" id="projecttab" role="tabpanel">
+                        <a href="{% url 'add_project' %}" class="btn btn-primary"><span>Add project</span></a>
+                        {% for project in projectdata %}
+                        <div class="col-12 col-md-6 col-lg-4">
+							<div class="card">
+								<img class="card-img-top" {% if project.project_feature_image %} src="{{project.project_feature_image.url}}"{% endif %} alt="Unsplash">
+								<div class="card-header px-4 pt-4">
+									<div class="card-actions float-end">
+										<div class="dropdown position-relative">
+											<a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+												<i class="align-middle" data-feather="more-horizontal"></i>
+											</a>
+											<div class="dropdown-menu dropdown-menu-end">
+												<a class="dropdown-item" href="{% url 'edit_project' project.id %}"><i class="align-middle" data-feather="edit"></i> Edit</a>
+                                                    <a class="dropdown-item" href="{% url 'delete_project' project.id %}"><i class="align-middle" data-feather="delete"></i> Delete</a>
+											</div>
+										</div>
+									</div>
+									<h5 class="card-title mb-0">{{project.project_name}}</h5>
+									<div class="badge bg-warning my-2">Project</div>
+								</div>
+								<div class="card-body px-4 pt-2">
+									<p>{{project.project_details|slice:":60"}}...</p>
+									
+								</div>
+								
+							</div>
+						</div>
+                        {% endfor %}
+                        </div>
+
+    </div>
+</main>
+
+
+{% endblock content %}

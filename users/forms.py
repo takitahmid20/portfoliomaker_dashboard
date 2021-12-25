@@ -43,7 +43,7 @@ class CustomUserCreationForm(UserCreationForm):
 class profileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['username','profile_image', 'name', 'short_introduction', 'facebook', 'twitter', 'instagram', 'linkedin', 'about_banner_img', 'bio', 'birthday', 'age', 'address', 'email', 'phone', 'study_in']
+        fields = ['username', 'profile_image', 'name', 'short_introduction', 'facebook', 'twitter', 'instagram', 'linkedin', 'about_banner_img', 'bio', 'birthday', 'age', 'address', 'email', 'phone', 'study_in']
         # exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
@@ -51,60 +51,69 @@ class profileForm(ModelForm):
 
         # for name, field in self.fields.items():
         #     field.widget.attrs.update({'class': 'input--style-3'})
+        self.fields['username'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Username',
+            }),
         self.fields['name'].widget.attrs.update({
-            'class': 'account_edit',
+            'class': 'form-control',
             'placeholder': 'Name',
             }),
+        
+        self.fields['profile_image'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Add you profile photo',
+            }),
         self.fields['short_introduction'].widget.attrs.update({
-            'class': 'account_edit',
+            'class': 'form-control',
             'placeholder': 'Short intro about you',
             }),
         self.fields['facebook'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Facebook link',
             }),
         self.fields['twitter'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Twitter link',
             }),
         self.fields['instagram'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Instagram link',
             }),
         self.fields['linkedin'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Linkedin link',
             }),
         self.fields['about_banner_img'].widget.attrs.update({
-            'class': 'account_edit',
+            'class': 'form-control',
             'placeholder': 'Add a banner image',
             }),
         self.fields['bio'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Add your bio',
             }),
         self.fields['birthday'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Birthday',
             }),
         self.fields['age'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Age',
             }),
         self.fields['address'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Address',
             }),
         self.fields['email'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Email address',
             }),
         self.fields['phone'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Phone number',
             }),
         self.fields['study_in'].widget.attrs.update({
-            'class': 'account_edit edit_social',
+            'class': 'form-control',
             'placeholder': 'Study in',
             })
 

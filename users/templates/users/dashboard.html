@@ -1,0 +1,143 @@
+{% extends 'dashboardbase.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+
+<!---Content Start-->
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <div class="mb-3">
+            <h1 class="h3 d-inline align-middle">Profile</h1>
+            
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4 col-xl-3">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Profile Details</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        {% comment %} <img src="img/avatars/avatar-4.jpg" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128" /> {% endcomment %}
+
+						{{profiledata.profile_image}}<br>
+                    <h5 style="margin-bottom:5px;" class="card-title mb-0">{{profiledata.username}}</h5></br>
+                    
+                        <h5 style="margin-bottom:5px;" class="card-title mb-0">{{profiledata.name}}</h5>
+					</br>
+                        <div class="text-muted mb-2">{{profiledata.short_introduction}}</div>
+
+                        {% comment %} <div>
+                            <a class="btn btn-primary btn-sm" href="#">Follow</a>
+                            <a class="btn btn-primary btn-sm" href="#"><span data-feather="message-square"></span> Message</a>
+                        </div> {% endcomment %}
+                    </div>
+
+                    {% comment %} <hr class="my-0" />
+
+                    <div class="card-body">
+                        <h5 class="h6 card-title">Skills</h5>
+                        <a href="#" class="badge bg-primary me-1 my-1">HTML</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">JavaScript</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">Sass</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">Angular</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">Vue</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">React</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">Redux</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">UI</a>
+                        <a href="#" class="badge bg-primary me-1 my-1">UX</a>
+                    </div> {% endcomment %}
+					
+                    {% comment %} <hr class="my-0" />
+
+                    <div class="card-body">
+                        <h5 class="h6 card-title">About</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-1"><span data-feather="home" class="feather-sm me-1"></span> Lives in <a href="#">San Francisco, SA</a></li>
+
+                            <li class="mb-1"><span data-feather="briefcase" class="feather-sm me-1"></span> Works at <a href="#">GitHub</a></li>
+                            <li class="mb-1"><span data-feather="map-pin" class="feather-sm me-1"></span> From <a href="#">Boston</a></li>
+                        </ul>
+                    </div>
+					 {% endcomment %}
+                    <hr class="my-0" />
+                    <div class="card-body">
+                        <h5 class="h6 card-title">Social account</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-1"><i class="align-middle" data-feather="facebook"></i> {{profiledata.facebook.label}}{{profiledata.facebook}}</li>
+							<li class="mb-1"><i class="align-middle" data-feather="twitter"></i> {{profiledata.twitter.label}}{{profiledata.twitter}}</li>
+							<li class="mb-1"><i class="align-middle" data-feather="instagram"></i> {{profiledata.instagram.label}}{{profiledata.instagram}}</li>
+							<li class="mb-1"><i class="align-middle" data-feather="linkedin"></i> {{profiledata.linkedin.label}}{{profiledata.linkedin}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-xl-9">
+                <div class="card">
+                    <div class="card-header">
+
+                        <h5 class="card-title mb-0">About</h5>
+                    </div>
+                    
+                    <div class="card-body h-100">
+
+                        <div class="d-flex align-items-start">
+                            <div class="flex-grow-1">
+                              {{profiledata.about_banner_img}}
+                             </div>
+                        </div>
+
+						<br>
+						<div class="d-flex align-items-start">
+                            <div class="flex-grow-1">
+                              {{profiledata.bio}}
+                            </div>
+                        </div>
+                        <br>
+						<div class="d-flex align-items-start">
+                            <div class="flex-grow-1">
+                              {{profiledata.birthday}}
+                            </div>
+                            <div class="flex-grow-1">
+                                {{profiledata.age}}
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                              <div class="flex-grow-1">
+                                {{profiledata.address}}
+                              </div>
+                              <div class="flex-grow-1">
+                                {{profiledata.email}}
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                              <div class="flex-grow-1">
+                                {{profiledata.phone}}
+                              </div>
+                              <div class="flex-grow-1">
+                                {{profiledata.study_in}}
+                              </div>
+
+                        </div>
+
+                        <hr />
+                        <div class="d-grid">
+                            <input type="submit" class="btn btn-primary" value="Save" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    </div>
+</main>
+
+{% endblock content %}

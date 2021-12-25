@@ -2,10 +2,13 @@ from django.urls import path
 from .import views
 
 urlpatterns = [
+    path('', views.userAccount, name='account'),
     path('register', views.registerPage, name='register'),
     path('login', views.loginPage, name='login'),
     path('logout', views.logoutUser, name='logout'),
-    path('', views.userAccount, name='account'),
+    path('skills', views.skills, name='skills'),
+    path('portfolio', views.Portfolio, name='portfolio'),
+    
     #----------VIDEO-------------
     path('add-video', views.addVideo, name='add_video'),
     path('edit-video/<str:pk>/', views.editVideo, name='edit_video'),

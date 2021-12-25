@@ -25,7 +25,7 @@ def registerPage(request):
             user.username = user.username.lower()
             user.save()
 
-            login(request, user)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             # return reverse('fullsiteview', str=user.str)
             return redirect('account')
         else:
@@ -62,6 +62,7 @@ def loginPage(request):
     return render(request, 'users/login.html')
 
 
+@login_required(login_url='login')
 def logoutUser(request):
     logout(request)
     messages.info(request, 'User was logged out.')
@@ -72,12 +73,6 @@ def logoutUser(request):
 def userAccount(request):
     profile = request.user.profile
     form = profileForm(instance=profile)
-    videodata = profile.videomodel_set.exclude()
-    imagedata = profile.imagemodel_set.exclude()
-    projectdata = profile.projectmodel_set.exclude()
-    myskilldata = profile.myskills_set.exclude()
-    languageskilldata = profile.languageskills_set.exclude()
-    extradata = profile.extras_set.exclude()
 
     if request.method == 'POST':
         form = profileForm(request.POST, request.FILES, instance=profile)
@@ -86,8 +81,34 @@ def userAccount(request):
 
             return redirect('account')
 
-    context = {'profiledata': form, 'videodata':videodata, 'imagedata':imagedata, 'projectdata':projectdata, 'myskilldata':myskilldata, 'languageskilldata':languageskilldata, 'extradata':extradata}
-    return render(request, 'users/account.html', context)
+    context = {'profiledata': form}
+    return render(request, 'users/dashboard.html', context)
+
+# videodata = profile.videomodel_set.exclude()
+#     imagedata = profile.imagemodel_set.exclude()
+#     projectdata = profile.projectmodel_set.exclude()
+#     myskilldata = profile.myskills_set.exclude()
+#     languageskilldata = profile.languageskills_set.exclude()
+#     extradata = profile.extras_set.exclude()
+
+@login_required(login_url='login')
+def skills(request):
+    profile = request.user.profile
+    myskilldata = profile.myskills_set.exclude()
+    languageskilldata = profile.languageskills_set.exclude()
+    context = {'myskilldata':myskilldata, 'languageskilldata':languageskilldata}
+    return render(request, 'users/skills.html', context)
+
+
+@login_required(login_url='login')
+def Portfolio(request):
+    profile = request.user.profile 
+    videodata = profile.videomodel_set.exclude()
+    imagedata = profile.imagemodel_set.exclude()
+    projectdata = profile.projectmodel_set.exclude()
+    context = {'videodata':videodata, 'imagedata':imagedata, 'projectdata': projectdata}
+    return render(request, 'users/portfolio.html', context)
+
 
 
 @login_required(login_url='login')
@@ -102,7 +123,7 @@ def addVideo(request):
             videomodel.owner = profile
             videomodel.save()
             
-            return redirect('account')
+            return redirect('portfolio')
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
@@ -114,22 +135,23 @@ def editVideo(request, pk):
     form = videoForm(instance=video)
 
     if request.method == 'POST':
-        form = videoForm(request.POST, instance=video)
+        form = videoForm(request.POST, request.FILES, instance=video)
         if form.is_valid():
             form.save()
             # messages.success(request, 'Edited video')
-            return redirect('account')
+            return redirect('portfolio')
             
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
 
+@login_required(login_url='login')
 def deleteVideo(request, pk):
     profile = request.user.profile
     video = profile.videomodel_set.get(id=pk)
     if request.method == 'POST':
         video.delete()
-        return redirect('account')
+        return redirect('portfolio')
     context = {'object': video}
     return render(request, 'delete.html', context)
 
@@ -146,7 +168,7 @@ def addImage(request):
             imagemodel.owner = profile
             imagemodel.save()
             
-            return redirect('account')
+            return redirect('portfolio')
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
@@ -158,22 +180,23 @@ def editImage(request, pk):
     form = imageForm(instance=image)
 
     if request.method == 'POST':
-        form = imageForm(request.POST, instance=image)
+        form = imageForm(request.POST, request.FILES, instance=image)
         if form.is_valid():
             form.save()
             # messages.success(request, 'Edited video')
-            return redirect('account')
+            return redirect('portfolio')
             
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
 
+@login_required(login_url='login')
 def deleteImage(request, pk):
     profile = request.user.profile
     image = profile.imagemodel_set.get(id=pk)
     if request.method == 'POST':
         image.delete()
-        return redirect('account')
+        return redirect('portfolio')
     context = {'object': image}
     return render(request, 'delete.html', context)
 
@@ -190,7 +213,7 @@ def addProject(request):
             projectmodel.owner = profile
             projectmodel.save()
             
-            return redirect('account')
+            return redirect('portfolio')
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
@@ -202,22 +225,23 @@ def editProject(request, pk):
     form = projectForm(instance=project)
 
     if request.method == 'POST':
-        form = projectForm(request.POST, instance=project)
+        form = projectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             form.save()
             # messages.success(request, 'Edited video')
-            return redirect('account')
+            return redirect('portfolio')
             
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
 
+@login_required(login_url='login')
 def deleteProject(request, pk):
     profile = request.user.profile
     project = profile.projectmodel_set.get(id=pk)
     if request.method == 'POST':
         project.delete()
-        return redirect('account')
+        return redirect('portfolio')
     context = {'object': project}
     return render(request, 'delete.html', context)
 
@@ -234,7 +258,7 @@ def addMyskill(request):
             myskillmodel.owner = profile
             myskillmodel.save()
             
-            return redirect('account')
+            return redirect('skills')
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
@@ -250,18 +274,19 @@ def editMyskill(request, pk):
         if form.is_valid():
             form.save()
             # messages.success(request, 'Edited video')
-            return redirect('account')
+            return redirect('skills')
             
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
 
+@login_required(login_url='login')
 def deleteMyskill(request, pk):
     profile = request.user.profile
     myskill = profile.myskills_set.get(id=pk)
     if request.method == 'POST':
         myskill.delete()
-        return redirect('account')
+        return redirect('skills')
     context = {'object': myskill}
     return render(request, 'delete.html', context)
 
@@ -278,7 +303,7 @@ def addlanguageskill(request):
             languageskillmodel.owner = profile
             languageskillmodel.save()
             
-            return redirect('account')
+            return redirect('skills')
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
@@ -294,17 +319,18 @@ def editlanguageskill(request, pk):
         if form.is_valid():
             form.save()
             # messages.success(request, 'Edited video')
-            return redirect('account')
+            return redirect('skills')
             
     context = {'form':form}
     return render(request, 'users/add.html', context)
 
 
+@login_required(login_url='login')
 def deletelanguageskill(request, pk):
     profile = request.user.profile
     languageskill = profile.languageskills_set.get(id=pk)
     if request.method == 'POST':
         languageskill.delete()
-        return redirect('account')
+        return redirect('skills')
     context = {'object': languageskill}
     return render(request, 'delete.html', context)

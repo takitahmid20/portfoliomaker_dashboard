@@ -1,0 +1,78 @@
+{% extends 'dashboardbase.html' %}
+{% load static %}
+
+{% block content %}
+
+<!---Content Start-->
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <div class="row">
+
+            <div class="col-12 col-lg-6 col-xxl-9 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-header">
+
+                        <h5 class="card-title mb-0">My Skills <a href="{% url 'add_myskill' %}"><button class="btn btn-primary"><i class="align-middle" data-feather="plus-circle"></i> Add my skill</button></a></h5>
+                    </div>
+                    <table class="table table-hover my-0">
+
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="d-none d-xl-table-cell">Percentage</th>
+                                <th>Action</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for myskill in myskilldata %}
+                            <tr>
+                                <td>{{myskill.skill_name}}</td>
+                                <td class="d-none d-xl-table-cell">{{myskill.skill_percentage}}%</td>
+                                <td><a href="{% url 'edit_myskill' myskill.id %}"><span class="badge bg-success"><i class="align-middle" data-feather="edit"></i> Edit</span></a></td>
+                                <td><a href="{% url 'delete_myskill' myskill.id %}"><span class="badge bg-danger"><i class="align-middle" data-feather="delete"></i> Delete</span></a></td>
+                            </tr>
+                            {% endfor %}
+  
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="col-12 col-lg-6 col-xxl-9 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-header">
+
+                        <h5 class="card-title mb-0">Language Skills <a href="{% url 'add_languageskill' %}"><button class="btn btn-primary"><i class="align-middle" data-feather="plus-circle"></i> Add language skill</button></a></h5>
+                    </div>
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="d-none d-xl-table-cell">Percentage</th>
+                                <th>Action</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for languageskill in languageskilldata %}
+                            <tr>
+                                <td>{{languageskill.language_name}}</td>
+                                <td class="d-none d-xl-table-cell">{{languageskill.language_percentage}}%</td>
+                                <td><a href="{% url 'edit_languageskill' languageskill.id %}"><span class="badge bg-success"><i class="align-middle" data-feather="edit"></i> Edit</span></a></td>
+                                <td><a href="{% url 'delete_languageskill' languageskill.id %}"><span class="badge bg-danger"><i class="align-middle" data-feather="delete"></i> Delete</span></a></td>
+                            </tr>
+                            {% endfor %}
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</main>
+
+{% endblock content %}

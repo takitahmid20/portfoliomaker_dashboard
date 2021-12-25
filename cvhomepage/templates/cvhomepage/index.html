@@ -108,6 +108,112 @@
                     <div class="about-decor about-decor_2"></div>
                     <div class="about-decor about-decor_3"></div>
                 </div>
+
+                <div class="section-prices" id="price">
+                    <div class="wrapper">
+                        <div class="section-heading h-center"><span>prices</span></div>
+                        <div class="h-decor-2">
+                            <h2 class="h2 h-center"><span>discover our price - list</span></h2>
+                            <div class="section-subtitle h-center">Firstly thanked to you for choosing us. We hope you will consider some time to read why we are offering free of cost. <br> We have no price, we are offering 100% free of cost. You can use this site fully free</div>
+                        </div>
+
+                        <div class="prices">
+                            <a href="{% url 'register' %}" class="prices__item">
+                                <div class="prices__head">
+                                    <div class="prices__decor"><span></span></div>
+                                    <div class="prices__inner">
+                                        <div class="prices__category">JUST</div>
+                                        <div class="prices__title">Chill Plan</div>
+                                        <div class="prices__cost"><span class="prices__cost-val">100</span>%</div>
+                                        <div class="prices__period">FREE</div>
+                                    </div>
+                                </div>
+                                <div class="prices__content">
+                                    <ul class="prices__list">
+                                        <li>You can share your profile</li>
+                                        <li>For your general information</li>
+                                        <li>No premium package, 100% free</li>
+                                    </ul>
+                                    <div class="prices__btn">
+                                        <span class="btn btn-2 btn-3 btn_buy">Create free account</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-newsletter">
+                    <div class="section-newsletter__bg js-lazy" data-src="{% static 'home/img/bg/bg-3.svg' %}"></div>
+                    <div class="wrapper">
+                        <div class="newsletter">
+                            <div class="newsletter__content">
+                                <h3 class="h3">Newsletter</h3>
+                                <div class="newsletter__text">
+                                    <p>Pariatur magna cupidatat magna sit incididunt non pariatur. Sint nulla commodo qui magna eiusmod quis aliqua laboris officia excepteur non eu in.</p>
+                                </div>
+                                <form>
+                                    <div class="box-fileds-newsletter">
+                                        <div class="box-filed box-filed_1">
+                                            <input type="email" placeholder="Enter your email">
+                                        </div>
+                                        <div class="box-filed box-filed_submit">
+                                            <input type="submit" class="btn" value="Subscribe">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="newsletter__img">
+                                <div class="newsletter__picture">
+                                    <img data-src="{% static 'home/img/newsletter.svg' %}" alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-testimonials" id="testimonials">
+                    <div class="wrapper">
+                        <div class="testimonials">
+                            <div class="testimonials__img">
+                                <div class="testimonials__picture">
+                                    <img data-src="{% static 'home/img/testimonials.svg' %}" alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+                                </div>
+                            </div>
+                            <div class="testimonials__content">
+                                <div class="section-heading"><span>they say</span></div>
+                                <div class="h2">Testimonials</div>
+                                <div class="swiper-container reviews-slider js-slider-1">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide testimonials-card">
+                                            <div class="testimonials-card__text">
+                                                <p>“Dolor duis voluptate enim exercitation consequat ex. Voluptate in sunt commodo aute do. Dolor enim dolor labore velit nulla sit exercitation irure esse proident.”</p>
+                                            </div>
+                                            <div class="author">
+                                                <img class="author__img js-lazy" data-src="{% static 'home/img/examples/avatar_1.jpg' %}" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
+                                                <div class="author__details">
+                                                    <div class="author__title">Kathryn Murphy</div>
+                                                    <div class="author__position">Marketing Coordinator</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide testimonials-card">
+                                            <div class="testimonials-card__text">
+                                                <p>“2 Dolor duis voluptate enim exercitation consequat ex. Voluptate in sunt commodo aute do. Dolor enim dolor labore velit nulla sit exercitation”</p>
+                                            </div>
+                                            <div class="author">
+                                                <img class="author__img js-lazy" data-src="{% static 'home/img/examples/avatar_1.jpg' %}" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
+                                                <div class="author__details">
+                                                    <div class="author__title">Kathryn Murp</div>
+                                                    <div class="author__position">Marketing Coord</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="section-get">
                     <div class="wrapper">
                         <div class="section-heading h-center"><span>what we do</span></div>
@@ -277,161 +383,8 @@
                         <div class="steps-text">Pariatur magna cupidatat magna sit incididunt non pariatur. Sint nulla commodo qui magna eiusmod quis aliqua laboris officia excepteur non eu in. Consequat esse in dolore laborum dolore ut duis elit deserunt minim.</div>
                     </div>
                 </div>
-                <div class="section-prices" id="price">
-                    <div class="wrapper">
-                        <div class="section-heading h-center"><span>prices</span></div>
-                        <div class="h-decor-2">
-                            <h2 class="h2 h-center"><span>discover our price - list</span></h2>
-                            <div class="section-subtitle h-center">Dolor duis voluptate enim exercitation consequat ex.</div>
-                        </div>
-                        <div class="prices">
-                            <a href="#" class="prices__item">
-                                <div class="prices__head">
-                                    <div class="prices__decor"><span></span></div>
-                                    <div class="prices__inner">
-                                        <div class="prices__category">simple</div>
-                                        <div class="prices__title">Basic Plan</div>
-                                        <div class="prices__cost">$<span class="prices__cost-val">69</span>.95</div>
-                                        <div class="prices__period">/per month</div>
-                                    </div>
-                                </div>
-                                <div class="prices__content">
-                                    <ul class="prices__list">
-                                        <li>Monthly Progress Report</li>
-                                        <li>Ad Campaign Management</li>
-                                        <li>Business Page Optimization</li>
-                                        <li>Copywriter & Visual Design</li>
-                                    </ul>
-                                    <div class="prices__btn">
-                                        <span class="btn btn-2 btn-3 btn_buy">buy now</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="prices__item prices__item-recomendation">
-                                <div class="prices__head">
-                                    <div class="prices__decor"><span></span></div>
-                                    <div class="prices__inner">
-                                        <div class="prices__category">MEDIUM</div>
-                                        <div class="prices__title">Standard Plan</div>
-                                        <div class="prices__cost">$<span class="prices__cost-val">89</span>.95</div>
-                                        <div class="prices__period">/per month</div>
-                                    </div>
-                                </div>
-                                <div class="prices__content">
-                                    <ul class="prices__list">
-                                        <li>Basic Plan</li>
-                                        <li>Ad Campaign Management</li>
-                                        <li>Business Page Optimization</li>
-                                        <li>Copywriter & Visual Design</li>
-                                        <li>Monthly Progress Report</li>
-                                        <li>Social Media Listening</li>
-                                    </ul>
-                                    <div class="prices__btn">
-                                        <span class="btn btn-2 btn-3 btn_buy">buy now</span>
-                                    </div>
-                                    <div class="prices__rec">
-                                        <div class="checkbox-element ">
-                                            <span class="checkbox-text">Recommended</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="prices__item">
-                                <div class="prices__head">
-                                    <div class="prices__decor"><span></span></div>
-                                    <div class="prices__inner">
-                                        <div class="prices__category">extended</div>
-                                        <div class="prices__title">power Plan</div>
-                                        <div class="prices__cost">$<span class="prices__cost-val">99</span>.95</div>
-                                        <div class="prices__period">/per month</div>
-                                    </div>
-                                </div>
-                                <div class="prices__content">
-                                    <ul class="prices__list">
-                                        <li>Monthly Progress Report</li>
-                                        <li>Ad Campaign Management</li>
-                                        <li>Business Page Optimization</li>
-                                        <li>Copywriter & Visual Design</li>
-                                    </ul>
-                                    <div class="prices__btn">
-                                        <span class="btn btn-2 btn-3 btn_buy">buy now</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-newsletter">
-                    <div class="section-newsletter__bg js-lazy" data-src="{% static 'home/img/bg/bg-3.svg' %}"></div>
-                    <div class="wrapper">
-                        <div class="newsletter">
-                            <div class="newsletter__content">
-                                <h3 class="h3">Newsletter</h3>
-                                <div class="newsletter__text">
-                                    <p>Pariatur magna cupidatat magna sit incididunt non pariatur. Sint nulla commodo qui magna eiusmod quis aliqua laboris officia excepteur non eu in.</p>
-                                </div>
-                                <form>
-                                    <div class="box-fileds-newsletter">
-                                        <div class="box-filed box-filed_1">
-                                            <input type="email" placeholder="Enter your email">
-                                        </div>
-                                        <div class="box-filed box-filed_submit">
-                                            <input type="submit" class="btn" value="Subscribe">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="newsletter__img">
-                                <div class="newsletter__picture">
-                                    <img data-src="{% static 'home/img/newsletter.svg' %}" alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-testimonials" id="testimonials">
-                    <div class="wrapper">
-                        <div class="testimonials">
-                            <div class="testimonials__img">
-                                <div class="testimonials__picture">
-                                    <img data-src="{% static 'home/img/testimonials.svg' %}" alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
-                                </div>
-                            </div>
-                            <div class="testimonials__content">
-                                <div class="section-heading"><span>they say</span></div>
-                                <div class="h2">Testimonials</div>
-                                <div class="swiper-container reviews-slider js-slider-1">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide testimonials-card">
-                                            <div class="testimonials-card__text">
-                                                <p>“Dolor duis voluptate enim exercitation consequat ex. Voluptate in sunt commodo aute do. Dolor enim dolor labore velit nulla sit exercitation irure esse proident.”</p>
-                                            </div>
-                                            <div class="author">
-                                                <img class="author__img js-lazy" data-src="{% static 'home/img/examples/avatar_1.jpg' %}" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
-                                                <div class="author__details">
-                                                    <div class="author__title">Kathryn Murphy</div>
-                                                    <div class="author__position">Marketing Coordinator</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide testimonials-card">
-                                            <div class="testimonials-card__text">
-                                                <p>“2 Dolor duis voluptate enim exercitation consequat ex. Voluptate in sunt commodo aute do. Dolor enim dolor labore velit nulla sit exercitation”</p>
-                                            </div>
-                                            <div class="author">
-                                                <img class="author__img js-lazy" data-src="{% static 'home/img/examples/avatar_1.jpg' %}" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
-                                                <div class="author__details">
-                                                    <div class="author__title">Kathryn Murp</div>
-                                                    <div class="author__position">Marketing Coord</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                
                 <div class="section-main-blog" id="blog">
                     <div class="wrapper">
                         <div class="section-heading h-center"><span>news</span></div>
@@ -497,7 +450,7 @@
                         <div class="phone-item">
                             <div class="footer-title header-title-phone">Have a question? Call us!</div>
                             <div class="footer-phone__item">
-                                <i class="icon-phone"></i><a href="tel:+15469872185">+1 546 987 21 85</a>
+                                <i class="icon-phone"></i><a href="tel:+8801820365602">+8801820365602</a>
                             </div>
                         </div>
                     </div>
@@ -549,7 +502,7 @@
                             <div class="phone-item">
                                 <div class="footer-title footer-title_phone">Have a question? Call us!</div>
                                 <div class="footer-phone__item">
-                                    <i class="icon-phone"></i><a href="tel:+15469872185">+1 546 987 21 85</a>
+                                    <i class="icon-phone"></i><a href="tel:+8801820365602">+8801820365602</a>
                                 </div>
                             </div>
                         </div>
@@ -592,7 +545,7 @@
                     <div class="phone-item footer-phone">
                         <div class="footer-title footer-title_phone">Have a question? Call us!</div>
                         <div class="footer-phone__item">
-                            <i class="icon-phone"></i><a href="tel:+15469872185">+1 546 987 21 85</a>
+                            <i class="icon-phone"></i><a href="tel:+8801820365602">+8801820365602</a>
                         </div>
                     </div>
                     <a href="{% url 'login' %}" class="btn-2 btn_started">Sign in</a>
