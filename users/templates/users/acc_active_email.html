@@ -1,3 +1,6 @@
+
+
+{% autoescape off %}
 <!doctype html>
 <html>
   <head>
@@ -236,13 +239,17 @@
           border-color: #34495e !important; } }
     </style>
   </head>
-  <body class="">
+
+
+
+
+<body class="">
     <table border="0" cellpadding="0" cellspacing="0" class="body">
       <tr>
         <td>&nbsp;</td>
         <td class="container">
           <div class="content">
-            <span class="preheader">Subscribe to Coloured.com.ng mailing list</span>
+            <span class="preheader"></span>
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->
@@ -251,8 +258,9 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
+                        <h1>Hi {{ user.username }},</h1>
                         <h1>Confirm your email</h1>
-                        <h2>You are just one step away</h2>
+                        <h2>Please click on the button to confirm your registration</h2>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
@@ -260,7 +268,7 @@
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="http://htmlemail.io" target="_blank">confirm email</a> </td>
+                                      <td> <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}" target="_blank">confirm email</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -268,7 +276,7 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p>If you received this email by mistake, simply delete it. You won't be subscribed if you don't click the confirmation link above.</p>
+                        <p>Share your profile https://{{ domain }}/@{{user.username}}</p>
       
                       </td>
                     </tr>
@@ -284,13 +292,13 @@
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">Coloured.com.ng | Feminism | Culture | Law | Feminists Rising</span>
-                    <br> Don't like these emails? <a href="#">Unsubscribe</a>.
+                    <span class="apple-link"> | | |  | </span>
+                    <br> 
                   </td>
                 </tr>
                 <tr>
                   <td class="content-block powered-by">
-                    Powered by <a href="https://fb.me/jalasem">Jalasem</a>.
+                    Powered by <a href="https://lebriact.com">Lerbiact</a>.
                   </td>
                 </tr>
               </table>
@@ -304,4 +312,10 @@
       </tr>
     </table>
   </body>
+
+
+
+
+
 </html>
+{% endautoescape %}

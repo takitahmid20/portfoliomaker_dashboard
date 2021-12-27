@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-axu@&p514vibbjb7c7-1m&7bt10%0k)s0s&(7nh!lrl5rts(nt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['amarbio.herokuapp.com', '127.0.0.1']
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.google',
 ]
 
-# SITE_ID = 2
+SITE_ID = 2
 
 # SOCIALACCOUNT_PROVIDERS = {
 #     'google': {
@@ -203,3 +203,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SOCIAL_AUTH_FACEBOOK_KEY = '450317799917926'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '06f9c20221ffef03fd57cc5db96dd400'  # App Secret
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.lebriact.com'
+EMAIL_HOST_USER = 'amarbio@lebriact.com'
+EMAIL_HOST_PASSWORD = 'A?a{@&FXTFTe'
+EMAIL_PORT = 587

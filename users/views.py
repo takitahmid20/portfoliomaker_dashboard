@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
@@ -9,6 +10,15 @@ from django.urls import reverse
 from mycv.views import fullsiteview
 
 from .forms import CustomUserCreationForm, profileForm, videoForm, imageForm, projectForm, myskillForm, languageskillForm
+
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.utils.html import strip_tags
+
 
 def registerPage(request):
     form = CustomUserCreationForm()
@@ -22,24 +32,65 @@ def registerPage(request):
         
         elif form.is_valid():
             user = form.save(commit=False)
+            user.is_active = False
             user.username = user.username.lower()
             user.save()
+            current_site = get_current_site(request)
+            mail_subject = 'Activate your account.'
+            # message = render_to_string('users/acc_active_email.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid':urlsafe_base64_encode(force_bytes(user.username)),
+            #     'token':account_activation_token.make_token(user),
+            # })
+            # to_email = form.cleaned_data.get('email')
+            # email = EmailMessage(mail_subject, message, to=[to_email])
+            # email.send()
+            message = render_to_string('users/acc_active_email.html', {
+                'user': user,
+                'domain': current_site.domain,
+                'uid':urlsafe_base64_encode(force_bytes(user.username)),
+                'token':account_activation_token.make_token(user),
+            })
+            text_content = strip_tags(message)
+            to_email = form.cleaned_data.get('email')
+            email = EmailMultiAlternatives(mail_subject, text_content, to=[to_email])
+            email.attach_alternative(message, 'text/html')
+            email.send()
+            messages.success(request, 'Check your mail to confirm your account')
 
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             # return reverse('fullsiteview', str=user.str)
             return redirect('account')
         else:
-            messages.error(request, 'Something went wrong, try again')
-            print('Something went wrong')
+            context = {'form': form}
+            return render(request, 'users/register.html', context)
 
     context = {'form': form}
     return render(request, 'users/register.html', context)
 
 
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(username=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+        # return redirect('home')
+        # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return render(request, 'users/account_thankyou_page.html')
+    else:
+        return HttpResponse('<h1 style="text-align:center;">Activation link is invalid!</h1>')
+
+
 def loginPage(request):
 
     if request.user.is_authenticated:
-        return redirect('fullsiteview')
+        return redirect('account')
 
     if request.method == 'POST':
         username = request.POST['username']
@@ -47,6 +98,7 @@ def loginPage(request):
 
         try:
             user = User.objects.get(username=username)
+            
             
         except:
             messages.error(request, 'Username does not match.')
@@ -56,6 +108,7 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect('account')
+
         else:
             messages.error(request, 'Username or Password is incorrect.')
 
