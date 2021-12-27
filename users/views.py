@@ -126,6 +126,7 @@ def logoutUser(request):
 def userAccount(request):
     profile = request.user.profile
     form = profileForm(instance=profile)
+    current_site = get_current_site(request)
 
     if request.method == 'POST':
         form = profileForm(request.POST, request.FILES, instance=profile)
@@ -134,7 +135,7 @@ def userAccount(request):
 
             return redirect('account')
 
-    context = {'profiledata': form}
+    context = {'profiledata': form, 'domain': current_site}
     return render(request, 'users/dashboard.html', context)
 
 # videodata = profile.videomodel_set.exclude()

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 # from .models import homeModel, aboutModel, projectModel, videoModel, imageModel
 from .models import Profile, videoModel, imageModel, projectModel,mySkills, languageSkills, extras
+from django.contrib.sites.shortcuts import get_current_site
 
 
 def fullsiteview(request, username):
@@ -12,8 +13,9 @@ def fullsiteview(request, username):
     myskilldata = mySkills.objects.all()
     languageskilldata = languageSkills.objects.all()
     extradata = sitedata.extras_set.exclude()
+    current_site = get_current_site(request)
 
-    context = {'sitedata': sitedata, 'videodata': videodata, 'imagedata': imagedata, 'projectdata': projectdata, 'myskilldata':myskilldata, 'languageskilldata':languageskilldata, 'extradata':extradata}
+    context = {'sitedata': sitedata, 'videodata': videodata, 'imagedata': imagedata, 'projectdata': projectdata, 'myskilldata':myskilldata, 'languageskilldata':languageskilldata, 'extradata':extradata, 'domain': current_site}
     return render(request, 'mycv/profile.html', context)
 
 # def mycv(request, pk):
