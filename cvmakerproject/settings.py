@@ -16,7 +16,11 @@ SECRET_KEY = 'django-insecure-axu@&p514vibbjb7c7-1m&7bt10%0k)s0s&(7nh!lrl5rts(nt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -105,27 +109,27 @@ WSGI_APPLICATION = 'cvmakerproject.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolioserver',
-        'USER': 'postgres',
-        'PASSWORD': '8255',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'zjdjemix',
-#         'USER': 'zjdjemix',
-#         'PASSWORD': 'f6-Jon1VJzcf8K_73sG8B_u81_0vS8yZ',
-#         'HOST': 'castor.db.elephantsql.com',
+#         'NAME': 'portfolioserver',
+#         'USER': 'postgres',
+#         'PASSWORD': '8255',
+#         'HOST': 'localhost',
 #         'PORT': '5432',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'amarbiodatabase',
+        'USER': 'takitahmid',
+        'PASSWORD': 'NR0UGJ3aqei7Q5nBeM5BjImaaivMJPNU',
+        'HOST': 'dpg-c77044vd17cd71klbh80',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
