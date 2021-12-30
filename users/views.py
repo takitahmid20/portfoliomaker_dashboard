@@ -9,7 +9,7 @@ from mycv import views
 from django.urls import reverse
 from mycv.views import fullsiteview
 
-from .forms import CustomUserCreationForm, profileForm, videoForm, imageForm, projectForm, myskillForm, languageskillForm
+from .forms import CustomUserCreationForm, profileForm, videoForm, imageForm, projectForm, myskillForm, languageskillForm, blogForm
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -135,7 +135,7 @@ def userAccount(request):
 
             return redirect('account')
 
-    context = {'profiledata': form, 'domain': current_site}
+    context = {'profiledata': form,'domain': current_site}
     return render(request, 'users/dashboard.html', context)
 
 # videodata = profile.videomodel_set.exclude()
@@ -162,6 +162,14 @@ def Portfolio(request):
     projectdata = profile.projectmodel_set.exclude()
     context = {'videodata':videodata, 'imagedata':imagedata, 'projectdata': projectdata}
     return render(request, 'users/portfolio.html', context)
+
+
+@login_required(login_url='login')
+def Blog(request):
+    profile = request.user.profile 
+    blogdata = profile.blogmodel_set.exclude()
+    context = {'blogdata':blogdata}
+    return render(request, 'users/myblog.html', context)
 
 
 
@@ -387,4 +395,49 @@ def deletelanguageskill(request, pk):
         languageskill.delete()
         return redirect('skills')
     context = {'object': languageskill}
+    return render(request, 'delete.html', context)
+
+
+@login_required(login_url='login')
+def addblog(request):
+    profile = request.user.profile
+    form = blogForm()
+
+    if request.method == 'POST':
+        form = blogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blogmodel = form.save(commit=False)
+            blogmodel.owner = profile
+            blogmodel.save()
+            
+            return redirect('myblog')
+    context = {'form':form}
+    return render(request, 'users/add.html', context)
+
+
+@login_required(login_url='login')
+def editblog(request, pk):
+    profile = request.user.profile
+    myblog = profile.blogmodel_set.get(id=pk)
+    form = blogForm(instance=myblog)
+
+    if request.method == 'POST':
+        form = blogForm(request.POST, request.FILES, instance=myblog)
+        if form.is_valid():
+            form.save()
+            # messages.success(request, 'Edited video')
+            return redirect('myblog')
+            
+    context = {'form':form}
+    return render(request, 'users/add.html', context)
+
+
+@login_required(login_url='login')
+def deleteblog(request, pk):
+    profile = request.user.profile
+    myblog = profile.blogmodel_set.get(id=pk)
+    if request.method == 'POST':
+        myblog.delete()
+        return redirect('skills')
+    context = {'object': myblog}
     return render(request, 'delete.html', context)

@@ -104,3 +104,16 @@ class extras(models.Model):
     total_clients = models.IntegerField(null=True, blank=True)
     def __str__(self):
         return str(self.total_completed_projects)
+
+
+class blogModel(models.Model):
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True)
+    blog_title = models.CharField(max_length=200, blank=True, null=True)
+    blog_description = models.TextField(blank=True, null=True)
+    blog_thumbnail = models.ImageField(blank=True, null=True)
+    blog_category = models.CharField(blank=True, null=True, max_length=50)
+    blog_tags = models.CharField(max_length=200, blank=True, null=True)
+    blog_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.blog_title)

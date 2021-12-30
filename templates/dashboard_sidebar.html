@@ -3,6 +3,7 @@
 {% url 'account' as account %}
 {% url 'skills' as skills %}
 {% url 'portfolio' as portfolio %}
+{% url 'myblog' as myblog %}
 
 <!---Start Sidebar -->
 <nav id="sidebar" class="sidebar js-sidebar">
@@ -40,6 +41,11 @@
     </a>
             </li>
 
+            <li class="sidebar-item {% if request.path == myblog %} active {% endif %}">
+              <a class="sidebar-link" href="{% url 'myblog' %}">
+    <i class="align-middle" data-feather="layout"></i> <span class="align-middle">My blog</span>
+  </a>
+          </li>
 
             {% comment %} <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-sign-up.html">

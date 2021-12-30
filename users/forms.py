@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from mycv.models import Profile, videoModel, imageModel, projectModel, mySkills, languageSkills, extras
+from mycv.models import Profile, videoModel, imageModel, projectModel, mySkills, languageSkills, extras, blogModel
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -268,3 +268,38 @@ class languageskillForm(ModelForm):
             })
         
         
+class blogForm(ModelForm):
+    class Meta:
+        model = blogModel
+        fields = ['blog_title', 'blog_description', 'blog_thumbnail', 'blog_category', 'blog_tags']
+       
+
+    def __init__(self, *args, **kwargs):
+        super(blogForm, self).__init__(*args, **kwargs)
+
+          
+        self.fields['blog_title'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Blog title',
+            }),
+        self.fields['blog_description'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Blog Description',
+            })
+        self.fields['blog_thumbnail'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Blog thumbnail',
+            })
+        self.fields['blog_category'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Blog category',
+            })
+        self.fields['blog_tags'].widget.attrs.update({
+            'class': 'form-control',
+            'id': 'email',
+            'placeholder': 'Blog tags',
+            })

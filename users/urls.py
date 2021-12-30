@@ -10,6 +10,7 @@ urlpatterns = [
     path('logout', views.logoutUser, name='logout'),
     path('skills', views.skills, name='skills'),
     path('portfolio', views.Portfolio, name='portfolio'),
+    path('myblog', views.Blog, name='myblog'),
     
     #----------VIDEO-------------
     path('add-video', views.addVideo, name='add_video'),
@@ -31,6 +32,10 @@ urlpatterns = [
     path('add-languageskill', views.addlanguageskill, name='add_languageskill'),
     path('edit-languageskill/<str:pk>/', views.editlanguageskill, name='edit_languageskill'),
     path('delete-languageskill/<str:pk>/', views.deletelanguageskill, name='delete_languageskill'),
+    #----------MYBLOG------------
+    path('add-blog', views.addblog, name='add_blog'),
+    path('edit-blog/<str:pk>/', views.editblog, name='edit_blog'),
+    path('delete-blog/<str:pk>/', views.deleteblog, name='delete_blog'),
 
     # path('editaccount', views.editAccount, name='editaccount')
 ]

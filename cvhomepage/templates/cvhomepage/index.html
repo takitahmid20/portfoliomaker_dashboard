@@ -391,192 +391,37 @@
                         <h2 class="h2 h-center">read our blog</h2>
                         <div class="section-subtitle h-center">Dolor duis voluptate enim exercitation consequat ex. </div>
                         <div class="blog-more">
-                            <a href="blog.html" class="btn">view all</a>
+                            <a href="{% url 'blog' %}" class="btn">view all</a>
                         </div>
                         <div class="news">
+                            {% for blog in blogdata %}
                             <div class="news__item">
                                 <a href="article.html" class="news__img">
-                                    <img data-src="{% static 'home/img/examples/news_1.jpg' %}"  alt="" class="js-lazy" src="{% static 'home/img/examples/news_1.jpg' %}">
+                                    <img data-src="{{blog.blog_thumbnail.url}}"  alt="" class="js-lazy" src="{% static 'home/img/examples/news_1.jpg' %}">
                                 </a> 
                                 <div class="news__content">
                                     <div class="news-header">
-                                        <div class="news__date">Jun 25, 2021</div>
+                                        <div class="news__date">{{blog.blog_created}}</div>
                                         <div class="news__author">
-                                            <img data-src="{% static 'home/img/examples/avatar_2.jpg' %}"  alt="" class="js-lazy" src="{% static 'home/img/examples/avatar_2.jpg' %}">
-                                            <span class="news__author-title">Annette Black</span>
+                                            {% comment %} <img data-src="{{blog.blog_thumbnail.url}}"  alt="" class="js-lazy" src="{{blog.blog_thumbnail.url}}"> {% endcomment %}
+                                            <span class="news__author-title">{{blog.owner.name}}</span>
                                         </div>
-                                        <a href="blog.html" class="news__category">Community</a>
+                                        <a href="blog.html" class="news__category">{{blog.blog_category}}</a>
                                     </div>
-                                    <div class="news__title"><a href="article.html">Dolor duis voluptate enim exercitation consequat ex. Voluptate in sunt </a></div>
+                                    <div class="news__title"><a href="#">{{blog.blog_title}} </a></div>
                                 </div>
                             </div>
-                            <div class="news__item">
-                                <a href="article.html" class="news__img">
-                                    <img data-src="{% static 'home/img/examples/news_2.jpg' %}"  alt="" class="js-lazy" src="{% static 'home/img/examples/news_2.jpg' %}">
-                                </a> 
-                                <div class="news__content">
-                                    <div class="news-header">
-                                        <div class="news__date">Jun 25, 2021</div>
-                                        <div class="news__author">
-                                            <img data-src="{% static 'home/img/examples/avatar_3.jpg' %}"  alt="" class="js-lazy" src="{% static 'home/img/examples/avatar_3.jpg' %}">
-                                            <span class="news__author-title">Dianne Russell</span>
-                                        </div>
-                                        <a href="blog.html" class="news__category">Community</a>
-                                    </div>
-                                    <div class="news__title"><a href="article.html">Dolor duis voluptate enim exercitation consequat ex. Voluptate in sunt </a></div>
-                                </div>
-                            </div>
-                        </div>
+                            {% endfor %}
                     </div>
                 </div>
             </main>
+
             <header class="header" id="header">
-                <div class="header-top">
-                    <div class="wrapper">
-                        <div class="socials ">
-                            <div class="footer-title">Find us here:</div>
-                            <div class="socials">
-                                <div class="socials__item">
-                                    <a href="#" target="_blank" class="socials__link">Fb</a>
-                                </div>
-                                <div class="socials__item">
-                                    <a href="#" target="_blank" class="socials__link">Ins</a>
-                                </div>
-                                <div class="socials__item">
-                                    <a href="#" target="_blank" class="socials__link">In</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="phone-item">
-                            <div class="footer-title header-title-phone">Have a question? Call us!</div>
-                            <div class="footer-phone__item">
-                                <i class="icon-phone"></i><a href="tel:+8801820365602">+8801820365602</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wrapper">
-                    <div class="nav-logo">
-                        <a href="{% url 'home' %}" class="logo">
-                            <img src="{% static 'home/img/logo.svg' %}" alt="Numerio">
-                        </a>
-                    </div>
-                    <div class="header-right">
-                        <div id="mainNav" class="menu-box">
-                            <nav class="nav-inner">
-                                <ul class="main-menu js-menu" id="mainMenu">
-                                    <li>
-                                        <a href="#services">Services</a>
-                                    </li>
-                                    <li>
-                                        <a href="#about">About</a>
-                                    </li>
-                                    <li>
-                                        <a href="#steps">Steps</a>
-                                    </li>
-                                    <li>
-                                        <a href="#price">Price</a>
-                                    </li>
-                                    <li>
-                                        <a href="#testimonials">Testimonials</a>
-                                    </li>
-                                    <li>
-                                        <a href="#blog">Blog</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <div class="socials-item">
-                                <div class="footer-title">Find us here:</div>
-                                <div class="socials">
-                                    <div class="socials__item">
-                                        <a href="#" target="_blank" class="socials__link">Fb</a>
-                                    </div>
-                                    <div class="socials__item">
-                                        <a href="#" target="_blank" class="socials__link">Ins</a>
-                                    </div>
-                                    <div class="socials__item">
-                                        <a href="#" target="_blank" class="socials__link">In</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="phone-item">
-                                <div class="footer-title footer-title_phone">Have a question? Call us!</div>
-                                <div class="footer-phone__item">
-                                    <i class="icon-phone"></i><a href="tel:+8801820365602">+8801820365602</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% if request.user.is_authenticated %}
-                        <a href="{% url 'account' %}" class="btn-2 btn_started-header">Account</a>
-                        {% else %}
-                        <a href="{% url 'login' %}" class="btn-2 btn_started-header">Sign in</a>
-                        {% endif %}
-                    </div>
-                    <div class="bars-mob js-button-nav">
-                        <div class="hamburger">
-                            <span></span><span></span><span></span>
-                        </div>
-                        <div class="cross">
-                            <span></span><span></span>
-                        </div>
-                    </div>
-                </div>
+               {% include 'homenavbar.html' %}
             </header>
+            
             <footer id="footer" class="footer footer-2">
-                <div class="footer__bg js-lazy" data-src="{% static 'home/img/bg/footer-2.svg' %}"></div>
-                <div class="wrapper">
-                    <a href="{% url 'home' %}" class="logo-footer">
-                        <img src="{% static 'home/img/logo.svg' %}" alt="Numerio">
-                    </a>
-                    <div class="socials-item footer-social">
-                        <div class="footer-title">Find us here:</div>
-                        <div class="socials">
-                            <div class="socials__item">
-                                <a href="#" target="_blank" class="socials__link">Fb</a>
-                            </div>
-                            <div class="socials__item">
-                                <a href="#" target="_blank" class="socials__link">Ins</a>
-                            </div>
-                            <div class="socials__item">
-                                <a href="#" target="_blank" class="socials__link">In</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phone-item footer-phone">
-                        <div class="footer-title footer-title_phone">Have a question? Call us!</div>
-                        <div class="footer-phone__item">
-                            <i class="icon-phone"></i><a href="tel:+8801820365602">+8801820365602</a>
-                        </div>
-                    </div>
-                    <a href="{% url 'login' %}" class="btn-2 btn_started">Sign in</a>
-                </div>
-                <div class="footer-bottom">
-                    <div class="wrapper">
-                        <div class="copyrights">©All rights reserved. Numerio 2021</div>
-                        <div class="footer-menu">
-                            <ul class="js-menu-footer">
-                                <li>
-                                    <a href="#services">Services</a>
-                                </li>
-                                <li>
-                                    <a href="#about">About</a>
-                                </li>
-                                <li>
-                                    <a href="#steps">Steps</a>
-                                </li>
-                                <li>
-                                    <a href="#price">Price</a>
-                                </li>
-                                <li>
-                                    <a href="#testimonials">Testimonials</a>
-                                </li>
-                                <li>
-                                    <a href="#blog">Blog</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                {% include 'homefooter.html' %}
             </footer>
         </div>
         <!-- BODY EOF   -->

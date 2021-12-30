@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="sidebar_search">
+    <form>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><span class="icon-search"></span></button>
+        </div>
+    </form>
+</div>
+<div class="sidebar-widget sidebar-widget_post">
+    <h3 class="sidebar-widget__title">Recent posts</h3>
+    <div class="stories">
+        <div class="stories-item">
+            <a href="article.html" class="stories-item__img"><img data-src="{% static 'home/img/examples/img1.jpg' %}" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" class="js-lazy" alt=""></a>
+            <div class="stories-item__infoline">
+                <div class="stories-item__title"><a href="article.html">How the Victorian fashion came to be</a></div>
+                <div class="stories-item__date">Jun 25, 2021</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="sidebar-widget sidebar-widget_datepicker">
+    <div id="datepicker" class="datepicker"></div>
+</div>
+<div class="sidebar-widget sidebar-widget_gallery">
+    <h3 class="sidebar-widget__title">gallery</h3>
+    <div class="gallery">
+        <a href="img/examples/gallery_1_big.jpg" class="gallery__item js-fancybox" data-fancybox="gallery">
+            <img data-src="img/examples/gallery_1.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" class="js-lazy" alt="">
+        </a>
+        
+    </div>
+</div>
+<div class="sidebar-widget sidebar-widget_tags">
+    <h3 class="sidebar-widget__title">Tags</h3>
+    <div class="tags">
+        <a href="blog.html" class="tags__item">Technology</a>
+        <a href="blog.html" class="tags__item">Office</a>
+        <a href="blog.html" class="tags__item">Mobile</a>
+        <a href="blog.html" class="tags__item">Business</a>
+        <a href="blog.html" class="tags__item">Community</a>
+        <a href="blog.html" class="tags__item">Web</a>
+        <a href="blog.html" class="tags__item">Collaboration</a>
+        <a href="blog.html" class="tags__item">Promotion</a>
+    </div>
+</div>

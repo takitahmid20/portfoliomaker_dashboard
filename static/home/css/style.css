@@ -1,5 +1,8 @@
 /* reset */
 /* main variables */
+html{ 
+  scroll-behavior: smooth;
+}
 .compensate-for-scrollbar { 
   margin-right: 0 !important; 
 }
