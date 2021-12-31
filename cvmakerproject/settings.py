@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-axu@&p514vibbjb7c7-1m&7bt10%0k)s0s&(7nh!lrl5rts(nt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -26,13 +26,14 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'django.contrib.sites',  # <-- Here social-auth-app-django
 
     'mycv.apps.MycvConfig',
@@ -98,16 +99,16 @@ WSGI_APPLICATION = 'cvmakerproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'd5v5vmdl1l6273',
-#         'USER': 'ciiytlpdvyogkr',
-#         'PASSWORD': '22c610b68b577e68725b585e91e905287bce1c5afc4295803d7db67216e42c1f',
-#         'HOST': 'ec2-54-147-107-18.compute-1.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5v5vmdl1l6273',
+        'USER': 'ciiytlpdvyogkr',
+        'PASSWORD': '22c610b68b577e68725b585e91e905287bce1c5afc4295803d7db67216e42c1f',
+        'HOST': 'ec2-54-147-107-18.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 # DATABASES = {
 #     'default': {
@@ -120,16 +121,7 @@ WSGI_APPLICATION = 'cvmakerproject.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'amarbiodatabase',
-        'USER': 'takitahmid',
-        'PASSWORD': 'NR0UGJ3aqei7Q5nBeM5BjImaaivMJPNU',
-        'HOST': 'dpg-c77044vd17cd71klbh80',
-        'PORT': '5432',
-    }
-}
+
 
 
 # Password validation
@@ -166,7 +158,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
@@ -174,6 +165,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 MEDIA_URL = ''
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'takitahmid',
+    'API_KEY': '119249779258248',
+    'API_SECRET': 'IitlE_gGr8AQXSL_GDud2xayawo'
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
