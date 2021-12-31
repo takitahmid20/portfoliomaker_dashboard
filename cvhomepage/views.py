@@ -18,8 +18,9 @@ def blogPage(request):
 
 def singleBlogPage(request, pk):
     blog = blogModel.objects.get(id=pk)
+    blogdata = blogModel.objects.all().order_by('-blog_created')
     current_site = get_current_site(request)
-    context = {'blog':blog, 'domain':current_site}
+    context = {'blog':blog,'blogdata':blogdata, 'domain':current_site}
     return render(request, 'cvhomepage/single_blog.html', context)
 
 
