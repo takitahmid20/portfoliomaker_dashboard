@@ -1,7 +1,7 @@
 {% extends 'homebase.html' %}
 
 {% load static %}
-
+{% block title %} Amarbio | Home {% endblock title %}
         {% block content %}
 
         <div class="main-wrapper">
@@ -395,22 +395,24 @@
                         </div>
                         <div class="news">
                             {% for blog in blogdata %}
+                            {% if forloop.counter <= 2 %}
                             <div class="news__item">
-                                <a href="article.html" class="news__img">
+                                <a href="{% url 'single_blog' blog.id %}" class="news__img">
                                     <img data-src="{{blog.blog_thumbnail.url}}"  alt="" class="js-lazy" src="{% static 'home/img/examples/news_1.jpg' %}">
                                 </a> 
                                 <div class="news__content">
                                     <div class="news-header">
-                                        <div class="news__date">{{blog.blog_created}}</div>
+                                        <div class="news__date">{{blog.blog_created|date:"M d, Y"}}</div>
                                         <div class="news__author">
-                                            {% comment %} <img data-src="{{blog.blog_thumbnail.url}}"  alt="" class="js-lazy" src="{{blog.blog_thumbnail.url}}"> {% endcomment %}
+                                            <img data-src="{{blog.owner.profile_image.url}}"  alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
                                             <span class="news__author-title">{{blog.owner.name}}</span>
                                         </div>
                                         <a href="blog.html" class="news__category">{{blog.blog_category}}</a>
                                     </div>
-                                    <div class="news__title"><a href="#">{{blog.blog_title}} </a></div>
+                                    <div class="news__title"><a href="{% url 'single_blog' blog.id %}">{{blog.blog_title}} </a></div>
                                 </div>
                             </div>
+                            {% endif %}
                             {% endfor %}
                     </div>
                 </div>

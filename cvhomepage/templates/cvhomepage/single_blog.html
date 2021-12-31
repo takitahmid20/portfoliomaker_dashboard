@@ -1,7 +1,7 @@
 {% extends 'homebase.html' %}
 
 {% load static %}
-
+{% block title %} {{blog.blog_title}} | Amarbio {% endblock title %}
         {% block content %}
 
         <div class="main-wrapper">
@@ -29,58 +29,47 @@
                                     <div class="article">
 
                                             <picture>
-                                                <source type="image/jpeg" srcset="img/examples/article.jpg" media="(min-width: 768px)" />
+                                                {% comment %} <source type="image/jpeg" srcset="img/examples/article.jpg" media="(min-width: 768px)" />
                                                 <source type="image/jpeg" srcset="img/examples/article_mob.jpg" />
-                                                <img src="img/examples/article_mob.jpg" alt="" class="img-article-main"/>
+                                                <img src="img/examples/article_mob.jpg" alt="" class="img-article-main"/> {% endcomment %}
+                                                <img data-src="{{blog.blog_thumbnail.url}}"  alt="" class="js-lazy" src="{{blog.blog_thumbnail.url}}">
                                             </picture>
                                         <div class="news-header news-header_article">
-                                            <div class="news__date">Jun 25, 2021</div>
+                                            <div class="news__date">{{blog.blog_created|date:"M d, Y"}}</div>
                                             <div class="news__author">
-                                                <img data-src="img/examples/avatar_2.jpg"  alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
-                                                <span class="news__author-title">Annette Black</span>
+                                                <img data-src="{{blog.owner.profile_image.url}}"  alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+                                                <span class="news__author-title">{{blog.owner.name}}</span>
                                             </div>
-                                            <a href="blog.html" class="news__category">Community</a>
+                                            <a href="blog.html" class="news__category">{{blog.blog_category}}</a>
                                         </div>
-                                        <h1>We appreciate every client and ready to help with all the issues that they have.</h1>
-                                        <p>Pariatur cupidatat Lorem irure nisi. Velit qui irure consectetur do cupi roident id est ex sunt nostrud nisi mine consectetur do cupi roident id est ex sunt nostrud nisi minim ut. Cupidatat velit dolore consectetur deserunt laboris magna eiusmod aliquip consectetur commodo in eiusmod aliqua cupidatat. Nostrud laboris et eu mollit qui esse dolore exercitation in dolore sint nisi eu aliqua. Sit ipsum cillum commodo enim eiusmod. Eiusmod et anim laborum consectetur. Proident nostrud anim nisi sunt veniam. Labore amet eiusmod dolor adipisicing Lorem tempor cillum <a href="#">incididunt</a> proident consequat laborum. Velit anim minim est consequat commodo eu reprehenderit eiusmod nisi amet quis tempor incididunt. Irure proident aute non sit adipisicing nulla sit proident dolore sunt. Aute aute Lorem sint sunt et fugiat laborum. Qui incididunt aute pariatur aute laborum elit nulla amet magna enim.</p>
-                                        <blockquote>
-                                            “As a participatory media culture, social media platforms or social networking sites are forms of mass communication that, through media technologies, allow large amounts of product and distribution of content to reach the largest audience possible. “
-                                            <cite>Ralph Edwards</cite>
-                                        </blockquote>
-                                        <h2>Pariatur cupidatat Lorem irure nisi Velit qui</h2>
-                                        <p>Pariatur cupidatat Lorem irure nisi. Velit qui irure consectetur do cupi roident id est ex sunt nostrud nisi mine consectetur do cupi roident id est ex sunt nostrud nisi minim ut. Cupidatat velit dolore consectetur deserunt laboris magna eiusmod aliquip consectetur commodo in eiusmod aliqua cupidatat. Nostrud laboris et eu mollit qui esse dolore exercitation in dolore sint nisi eu aliqua.</p>
-                                        <ol>
-                                            <li>As a participatory media culture, social media platforms or social networking sites are forms of mass communication that, through media technologies.</li>
-                                            <li>Allow large amounts of product and distribution of content to reach the largest audience possible. </li>
-                                            <li>However, there are downsides to virtual promotions as servers, systems, and websites may crash, fail, or become overloaded with information. You also can stand risk of losing uploaded information and storage and at a use can also be effected by a number of outside variables.</li>
-                                        </ol>
+                                        <h1>{{blog.blog_title}}</h1>
+                                        <p>{{blog.blog_description}}</p>
                                     </div>
                                     <div class="tags-article">
-                                        <div class="tags-article__title">Tags:</div>
+                                        <div class="tags-article__title">Tags:  </div>
                                         <div class="tags">
-                                            <a href="blog.html" class="tags__item">Technology</a>
-                                            <a href="blog.html" class="tags__item">Office</a>
-                                            <a href="blog.html" class="tags__item">Mobile</a>
+                                            <a href="blog.html" class="tags__item">{{blog.blog_tags}}</a>
+                                            
                                         </div>
                                     </div>
                                     <div class="article-author">
                                         <div class="article-author__img">
-                                            <img data-src="img/examples/author.jpg"  alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+                                            <img data-src="{{blog.owner.profile_image.url}}"  alt="" class="js-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
                                         </div>
                                         <div class="article-author__info">
                                             <div>
-                                                <div class="article-author__title">Cameron Williamson</div>
-                                                <div class="article-author__text">Web developer since 2006. Create hundreds of websites, HTML and CSS3 expert, who started to learn web design on a world-class level.</div>
+                                                <a href="http://127.0.0.1:8000/@{{blog.owner.username}}"> <div class="article-author__title">{{blog.owner.name}}</div></a>
+                                                <div class="article-author__text">{{blog.owner.short_introduction}}</div>
                                             </div>
                                             <div class="socials">
                                                 <div class="socials__item">
-                                                    <a href="#" target="_blank" class="socials__link">Fb</a>
+                                                    <a href="{{blog.owner.facebook}}" target="_blank" class="socials__link">Fb</a>
                                                 </div>
                                                 <div class="socials__item">
-                                                    <a href="#" target="_blank" class="socials__link">Ins</a>
+                                                    <a href="{{blog.owner.instagram}}" target="_blank" class="socials__link">Ins</a>
                                                 </div>
                                                 <div class="socials__item">
-                                                    <a href="#" target="_blank" class="socials__link">In</a>
+                                                    <a href="{{blog.owner.linkedin}}" target="_blank" class="socials__link">In</a>
                                                 </div>
                                             </div>
                                         </div>

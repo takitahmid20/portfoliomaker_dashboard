@@ -6,7 +6,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="{% static 'home/img/favicon.ico' %}" />
-        <title>Home</title>
+        <title> {% block title %}{% endblock title %} </title>
         <meta name='description' content="" />
         <meta name="keywords" content="" />
         <meta name="it-rating" content="it-rat-cd303c3f80473535b3c667d0d67a7a11" />
@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'home/fonts/Lato/LatoRegular.woff2' %}" as="font" crossorigin>
         <link rel="stylesheet" type="text/css" href="{% static 'home/fonts/Lato/LatoBold.woff2' %}" as="font" crossorigin>
         <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}" as="style">
-        <link rel="stylesheet" type="text/css" href="home/css/inner.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/inner.css' %}" />
     </head>
     <body class="home loaded">
 
